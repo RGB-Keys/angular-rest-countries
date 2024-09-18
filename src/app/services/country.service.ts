@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { Country } from '../components/countries-list/countries-list.component';
+import { Country } from '../models/countries/countries.module';
+
 
 @Injectable({
   providedIn: 'root'

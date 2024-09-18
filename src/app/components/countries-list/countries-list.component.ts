@@ -1,19 +1,7 @@
 import { Component } from '@angular/core';
+import { Country } from 'src/app/models/countries/countries.module';
 import { CountryService } from 'src/app/services/country.service';
 
-export interface Country {
-  name: {
-    common: string;
-  };
-  flags: {
-    png: string;
-  };
-  capital: string[];
-  region: string;
-  subregion: string;
-  population: number;
-  area: number;
-}
 
 @Component({
   selector: 'app-countries-list',
