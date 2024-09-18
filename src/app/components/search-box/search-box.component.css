@@ -1,0 +1,32 @@
+/* Container para centralizar o search-box */
+.search-box-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    box-sizing: border-box;
+  }
+  
+  /* Estilo do input */
+  .search-box input {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 600px; /* Ajuste conforme necessário */
+    box-sizing: border-box;
+  }
+  
+  .search-box input:focus {
+    border-color: #80bdff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+  }
+  
