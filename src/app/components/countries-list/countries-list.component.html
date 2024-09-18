@@ -1,0 +1,8 @@
+<div>
+  
+  <div class="country-container">
+    <app-countries-card *ngFor="let country of countries" [country]="country"></app-countries-card>
+  </div>
+  
+  <app-pagination [totalItems]="totalCountries" [itemsPerPage]="pageSize" [currentPage]="currentPage" (pageChange)="onPageChange($event)"></app-pagination>
+</div>

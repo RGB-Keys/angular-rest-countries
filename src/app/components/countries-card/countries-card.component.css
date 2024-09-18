@@ -1,0 +1,39 @@
+.country-card {
+  background-color: rgb(253, 244, 231);
+  border: 1px solid blanchedalmond;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 250px; /* Definir uma altura fixa para os cards */
+}
+
+.country-card:hover {
+  transform: scale(1.05);
+}
+  
+.country-flag {
+    width: 100px;
+    height: 60px;
+    object-fit: cover;
+    border: 0.1px solid black;
+    border-radius: 5px;
+}
+  
+.country-name {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+  
+.country-details {
+    margin-top: 10px;
+    text-align: left;
+}
+  
+.label {
+    font-weight: bold;
+}
