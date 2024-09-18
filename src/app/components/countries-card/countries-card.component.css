@@ -9,7 +9,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 250px; /* Definir uma altura fixa para os cards */
+  height: 250px;
+  box-sizing: border-box;
 }
 
 .country-card:hover {
@@ -22,6 +23,8 @@
     object-fit: cover;
     border: 0.1px solid black;
     border-radius: 5px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
   
 .country-name {
