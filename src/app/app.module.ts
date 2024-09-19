@@ -12,6 +12,7 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
 import { FilterComponent } from './components/filter/filter.component';
 import { SelectComponent } from './components/select/select.component';
 import { SortComponent } from './components/sort/sort.component';
+import { CountriesDetailsComponent } from './components/countries-details/countries-details.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { SortComponent } from './components/sort/sort.component';
     SearchBoxComponent,
     FilterComponent,
     SelectComponent,
-    SortComponent
+    SortComponent,
+    CountriesDetailsComponent
   ],
   imports: [
     BrowserModule,

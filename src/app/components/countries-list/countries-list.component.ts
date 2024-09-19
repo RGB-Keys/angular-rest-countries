@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Country } from 'src/app/models/countries/countries.module';
 import { PaginateService } from 'src/app/services/paginate/paginate.service';
@@ -21,7 +22,8 @@ export class CountriesListComponent implements OnInit {
   constructor(
     private searchPaginateFilterService: SearchPaginateFilterService,
     private searchService: SearchService,
-    private paginateService: PaginateService
+    private paginateService: PaginateService,
+    private router: Router
   ){ 
     this.countries$ = this.searchPaginateFilterService.getPaginatedAndFilteredCountries();
     this.totalCountries$ = this.searchPaginateFilterService.getTotalFilteredCountries();
@@ -58,5 +60,9 @@ export class CountriesListComponent implements OnInit {
   onPageChange(page: number): void {
     this.currentPage = page;
     this.loadCountries();
+  }
+
+  goToCountriesDetails(country: Country): void {
+    this.router.navigate(['/country', country.name.common]);
   }
 }

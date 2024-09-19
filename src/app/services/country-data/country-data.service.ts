@@ -23,6 +23,15 @@ export class CountryDataService {
     );
   }
 
+  getCountryByName(countryName: string): Observable<Country | undefined> {
+    const apiUrlByName = `https://restcountries.com/v3.1/name/${countryName}`;
+    return this.httpClient.get<Country[]>(apiUrlByName).pipe(
+      map((countries: Country[]) => {
+        return countries.length > 0 ? countries[0] : undefined;
+      })
+    );
+  }
+
   getRegions(): Observable<string[]> {
     return this.httpClient.get<any[]>(this.apiUrl).pipe(
       map(countries => Array.from(new Set(countries.map(country => country.region))).filter(Boolean))
