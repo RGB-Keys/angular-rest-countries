@@ -1,12 +1,12 @@
 <div>
   <div>
-    <label>Sort by:</label>
+    <label>Asc:</label>
     <select (change)="onSortChange($event)">
       <option *ngFor="let option of sortOptionsAsc" [value]="option.value">{{ option.label }}</option>
     </select>
   </div>
   <div>
-    <label>Sort by:</label>
+    <label>Desc:</label>
     <select (change)="onSortChange($event)">
       <option *ngFor="let option of sortOptionsDesc" [value]="option.value">{{ option.label }}</option>
     </select>

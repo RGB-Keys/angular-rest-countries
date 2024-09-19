@@ -1,8 +1,10 @@
 <div>
   <div class="search-box-container">
-    <app-search-box></app-search-box>
-    <app-filter></app-filter>
-    <app-sort></app-sort>
+    <div class="search-controls">
+      <app-filter></app-filter>
+      <app-search-box></app-search-box>
+      <app-sort></app-sort>
+    </div>
   </div>
   <div class="country-container">
     <app-countries-card *ngFor="let country of countries$ | async" [country]="country"></app-countries-card>
