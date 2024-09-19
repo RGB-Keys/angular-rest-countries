@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { CountryService } from 'src/app/services/country-api/country.service';
+import { SearchService } from 'src/app/services/search/search.service';
 
 @Component({
   selector: 'app-search-box',
@@ -11,9 +11,9 @@ export class SearchBoxComponent {
 
   @Output() search = new EventEmitter<string>();
 
-  constructor(private countryService: CountryService) {}
+  constructor(private searchService: SearchService) {}
 
   onSearch(): void {
-    this.countryService.setSearchTerm(this.searchTerm.trim());
+    this.searchService.setSearchTerm(this.searchTerm.trim());
   }
 }

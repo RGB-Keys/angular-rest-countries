@@ -1,0 +1,19 @@
+<div>
+  <app-select 
+    label="Region:" 
+    [options]="regions" 
+    (selectionChange)="onRegionChange($event)">
+  </app-select>
+
+  <app-select 
+    label="Sub-region:" 
+    [options]="subRegions" 
+    (selectionChange)="onSubRegionChange($event)">
+  </app-select>
+
+  <app-select 
+    label="Population:" 
+    [options]="populationRanges" 
+    (selectionChange)="onPopulationRangeChange($event)">
+  </app-select>
+</div>

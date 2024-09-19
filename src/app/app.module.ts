@@ -9,6 +9,9 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { CountriesCardComponent } from './components/countries-card/countries-card.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchBoxComponent } from './components/search-box/search-box.component';
+import { FilterComponent } from './components/filter/filter.component';
+import { SelectComponent } from './components/select/select.component';
+import { SortComponent } from './components/sort/sort.component';
 
 
 @NgModule({
@@ -17,7 +20,10 @@ import { SearchBoxComponent } from './components/search-box/search-box.component
     CountriesListComponent,
     PaginationComponent,
     CountriesCardComponent,
-    SearchBoxComponent
+    SearchBoxComponent,
+    FilterComponent,
+    SelectComponent,
+    SortComponent
   ],
   imports: [
     BrowserModule,
