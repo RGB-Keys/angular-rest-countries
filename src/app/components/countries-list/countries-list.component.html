@@ -1,4 +1,5 @@
 <div>
+
   <div class="search-box-container">
     <div class="search-controls">
       <app-filter></app-filter>
@@ -6,8 +7,11 @@
       <app-sort></app-sort>
     </div>
   </div>
+
   <div class="country-container">
-    <app-countries-card *ngFor="let country of countries$ | async" [country]="country"></app-countries-card>
+    <app-countries-card *ngFor="let country of countries$ | async" [country]="country" (click)="goToCountriesDetails(country)"></app-countries-card>
   </div>
+  
   <app-pagination [totalItems]="totalCountries" [itemsPerPage]="pageSize" [currentPage]="currentPage" (pageChange)="onPageChange($event)"></app-pagination>
+
 </div>
