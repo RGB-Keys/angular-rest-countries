@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, of, switchMap } from 'rxjs';
@@ -14,7 +15,8 @@ export class CountriesDetailsComponent implements OnInit{
 
   constructor(
     private route: ActivatedRoute,
-    private countryDataService: CountryDataService
+    private countryDataService: CountryDataService,
+    private locate:Location
   ) {
   }
 
@@ -25,5 +27,10 @@ export class CountriesDetailsComponent implements OnInit{
         return this.countryDataService.getCountryByName(params['countryName']);
       })
     );
-  }  
+  }
+  
+  goBack(): void {
+    this.locate.back();
+  }
+
 }

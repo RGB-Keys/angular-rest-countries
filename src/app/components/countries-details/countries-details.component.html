@@ -7,7 +7,7 @@
   <div class="info-group">
     <p><span class="label">Nome Comum:</span> {{ country.name.common }}</p>
     <p><span class="label">Nome Oficial:</span> {{ country.name.official }}</p>
-    <p><span class="label">Capital:</span> {{ country.capital?.[0] }}</p>
+    <p><span class="label">Capital:</span> {{ country.capital[0] }}</p>
     <p><span class="label">Região:</span> {{ country.region }}</p>
     <p><span class="label">Sub-região:</span> {{ country.subregion }}</p>
     <p><span class="label">População:</span> {{ country.population | number }}</p>
@@ -25,11 +25,13 @@
         {{ currency.value.name }} ({{ currency.value.symbol }})
       </span>
     </p>
-    <p><span class="label">Fuso horário:</span> {{ country.timezones?.join(', ') }}</p>
-    <p><span class="label">Domínio de internet (TLD):</span> {{ country.tld?.join(', ') }}</p>
-    <p><span class="label">Código de discagem internacional:</span> +{{ country.idd.root }}{{ country.idd.suffixes?.join(', ') }}</p>
+    <p><span class="label">Fuso horário:</span> {{ country.timezones.join(', ') }}</p>
+    <p><span class="label">Domínio de internet (TLD):</span> {{ country.tld.join(', ') }}</p>
+    <p><span class="label">Código de discagem internacional:</span> +{{ country.idd.root }}{{ country.idd.suffixes.join(', ') }}</p>
     <p><span class="label">Mapa (Google Maps):</span> <a [href]="country.maps.googleMaps" target="_blank">Ver no Google Maps</a></p>
   </div>
+
+  <button (click)="goBack()">Voltar</button>
 </div>
 
 <ng-template #loading>
