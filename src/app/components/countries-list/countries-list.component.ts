@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { map, Observable, of, switchMap, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Country } from 'src/app/models/countries/countries.module';
-import { CountryService } from 'src/app/services/country-api/country.service';
+import { PaginateService } from 'src/app/services/paginate/paginate.service';
+import { SearchPaginateFilterService } from 'src/app/services/seach-paginate-filter/search-paginate-filter.service';
+import { SearchService } from 'src/app/services/search/search.service';
 
 
 @Component({
@@ -16,9 +18,13 @@ export class CountriesListComponent implements OnInit {
   pageSize = 12;
   totalCountries = 0;
 
-  constructor(private countryService: CountryService) {
-    this.countries$ = this.countryService.getPaginatedAndFilteredCountries();
-    this.totalCountries$ = this.countryService.getTotalFilteredCountries();
+  constructor(
+    private searchPaginateFilterService: SearchPaginateFilterService,
+    private searchService: SearchService,
+    private paginateService: PaginateService
+  ){ 
+    this.countries$ = this.searchPaginateFilterService.getPaginatedAndFilteredCountries();
+    this.totalCountries$ = this.searchPaginateFilterService.getTotalFilteredCountries();
   }
 
   ngOnInit(): void {
@@ -31,20 +37,20 @@ export class CountriesListComponent implements OnInit {
   }
 
   onSearch(): void {
-    this.countryService.getSearchTerm().subscribe(searchTerm => {
-      this.applyFilter(searchTerm);
+    this.searchService.getSearchTerm().subscribe(searchTerm => {
+      this.resetFilter(searchTerm);
     });
   }
 
-  applyFilter(searchTerm: string): void {
+  resetFilter(searchTerm: string): void {
     this.currentPage = 1;
     this.loadCountries();
   }
 
   OnPage(): void {
-    this.countryService.setPage(this.currentPage);
-    this.countryService.setPageSize(this.pageSize);
-    this.countryService.getTotalFilteredCountries().subscribe(total => {
+    this.paginateService.setPage(this.currentPage);
+    this.paginateService.setPageSize(this.pageSize);
+    this.searchPaginateFilterService.getTotalFilteredCountries().subscribe(total => {
       this.totalCountries = total;
     });
   } 
