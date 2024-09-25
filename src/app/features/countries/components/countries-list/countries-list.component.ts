@@ -35,34 +35,6 @@ export class CountriesListComponent
     this.paginateService.setCurrentPage(page);
   }
 
-  // loadCountries(): void {
-  //   this.OnPage();
-  // }
-
-  // onSearch(): void {
-  //   this.searchService.getSearchTerm().subscribe(searchTerm => {
-  //     this.resetPage(searchTerm);
-  //   });
-  // }
-
-  // resetPage(searchTerm: string): void {
-  //   this.currentPage = 1;
-  //   this.loadCountries();
-  // }
-
-  // OnPage(): void {
-  //   this.paginateService.setPage(this.currentPage);
-  //   this.paginateService.setPageSize(this.pageSize);
-  //   this.countriesListService.getTotalFilteredCountries().subscribe(total => {
-  //     this.totalCountries = total;
-  //   });
-  // } 
-
-  // onPageChange(page: number): void {
-  //   this.currentPage = page;
-  //   this.loadCountries();
-  // }
-
    goToCountriesDetails(country: Country): void {
     this.router.navigate(['/country', country.name.common]);
   }

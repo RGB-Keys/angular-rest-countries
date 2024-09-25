@@ -63,53 +63,6 @@ export class CountriesListService {
     });
   }
 
-  // getPaginatedAndFilteredCountries(): Observable<Country[]> {
-  //   return this.combinedObservables$.pipe(
-  //     switchMap(([countries, region, subRegion, populationRange, searchTerm, page, pageSize, sortCriteria]) => {
-  //       return this.applyFilters(countries, region, subRegion, populationRange,searchTerm, page, pageSize, sortCriteria)
-  //     })
-  //   );
-  // }
-
-  // getTotalFilteredCountries(): Observable<number> {
-  //   return this.combinedObservables$.pipe(
-  //     map(([countries, region, subRegion, populationRange, searchTerm]) => {
-  //       const filteredCountries = countries
-  //         .filter(country => {
-  //           const matchesRegion = region ? country.region === region : true;
-  //           const matchesSubRegion = subRegion ? country.subregion === subRegion : true;
-  //           const matchesPopulation = this.matchPopulationRange(country.population, populationRange);
-  //           return matchesRegion && matchesSubRegion && matchesPopulation;
-  //         })
-  //         .filter(country =>
-  //           country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
-  //         );
-  //       return filteredCountries.length;
-  //     })
-  //   );
-  // }
-
-  // private applyFilters(countries: Country[], region: string,
-  //    subRegion: string, populationRange: string, searchTerm: string,
-  //    page: number, pageSize: number, sortCriteria: string): Observable<Country[]> {
-  //     return of(countries).pipe(
-  //       map(countries => {
-  //         const filteredCountries = countries.filter(country => {
-  //           const matchesRegion = !region || country.region === region;
-  //           const matchesSubRegion = !subRegion || country.subregion === subRegion;
-  //           const matchesPopulation = this.matchPopulationRange(country.population, populationRange);
-  //           const matchesSearchTerm = country.name.common.toLowerCase().includes(searchTerm.toLowerCase());
-            
-  //           return matchesRegion && matchesSubRegion && matchesPopulation && matchesSearchTerm;
-  //         });
-
-  //         const sortedCountries = this.sortService.sortCountries(filteredCountries, sortCriteria);
-    
-  //         return this.paginateCountries(sortedCountries, page, pageSize);
-  //       })
-  //     );
-  //   }
-
   private matchPopulationRange(population: number, range: string): boolean {
       switch (range) {
         case '<1M':
