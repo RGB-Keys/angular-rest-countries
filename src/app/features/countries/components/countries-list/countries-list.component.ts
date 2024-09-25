@@ -38,4 +38,5 @@ export class CountriesListComponent
    goToCountriesDetails(country: Country): void {
     this.router.navigate(['/country', country.name.common]);
   }
+
 }

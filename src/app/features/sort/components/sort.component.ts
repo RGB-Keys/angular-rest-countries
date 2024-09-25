@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SortService } from '../services/sort.service';
-import { getSelectValue } from 'src/app/shared/utils/event-utils';
+import { getSelectValue, showOptionsVisibility } from 'src/app/shared/utils/event-utils';
 
 @Component({
   selector: 'app-sort',
@@ -8,18 +8,16 @@ import { getSelectValue } from 'src/app/shared/utils/event-utils';
   styleUrls: ['./sort.component.css']
 })
 export class SortComponent {
-  sortOptionsAsc = [
-    { label: 'All', value: '' },
-    { label: 'Name', value: 'nameAsc' },
-    { label: 'Population', value: 'populationAsc' },
-    { label: 'Area', value: 'areaAsc' }
-  ];
+  showSortOption = false;
 
-  sortOptionsDesc = [
+  sortOptions = [
     { label: 'All', value: '' },
-    { label: 'Name', value: 'nameDesc' },
-    { label: 'Population', value: 'populationDesc' },
-    { label: 'Area', value: 'areaDesc' }
+    { label: 'Name - Asc', value: 'nameAsc' },
+    { label: 'Name - Desc', value: 'nameDesc' },
+    { label: 'Population - Asc', value: 'populationAsc' },
+    { label: 'Population - Desc', value: 'populationDesc' },
+    { label: 'Area - Asc', value: 'areaAsc' },
+    { label: 'Area - Desc', value: 'areaDesc' }
   ];
 
   constructor(private sortService: SortService) {}
@@ -27,5 +25,9 @@ export class SortComponent {
   onSortChange(event: Event) {
     const sortCriteria = getSelectValue(event);
     this.sortService.setSortCriteria(sortCriteria);
+  }
+
+  toggleSortOption() {
+    this.showSortOption = showOptionsVisibility(this.showSortOption);
   }
 }

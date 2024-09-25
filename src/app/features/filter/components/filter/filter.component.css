@@ -1,0 +1,56 @@
+.filter-dropdown {
+    position: relative; /* Necessário para posicionar o dropdown */
+}
+
+.filter-toggle {
+    background-color: #007bff; /* Cor do botão */
+    color: white; /* Cor do texto */
+    padding: 0.5rem 1.25rem; /* Usando rem para espaçamento */
+    border: none; /* Remove a borda padrão */
+    border-radius: 0.25rem; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor em forma de mão */
+    font-size: 1rem; /* Tamanho da fonte ajustado */
+}
+
+.filter-container {
+    position: absolute; /* Para que o dropdown apareça sobre os outros elementos */
+    top: 0%; /* Abaixo do botão */
+    right: 100%;
+    background-color: #f8f9fa; /* Fundo leve */
+    padding: 1rem; /* Espaçamento interno com rem */
+    border-radius: 0.5rem; /* Bordas arredondadas */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    width: 100%; /* Largura ajustável */
+    max-width: 40rem; /* Largura máxima do dropdown em rem */
+    min-width: 20rem;
+}
+
+/* Estilos para organizar os filtros dentro do dropdown */
+.filter-options {
+    display: flex;
+    flex-direction: column; /* Alinha os itens verticalmente */
+    gap: 1rem; /* Espaço entre os filtros */
+}
+
+/* Estilos para os inputs e selects dentro dos filtros */
+.filter-item {
+    display: flex;
+    justify-content: space-between; /* Mantém o label e o input alinhados */
+    align-items: center;
+}
+
+.filter-item label {
+    flex: 1; /* O label ocupa 1 parte do espaço disponível */
+    margin-right: 0.5rem; /* Espaço entre o label e o input */
+    font-weight: bold; /* Deixa o label em negrito */
+}
+
+.filter-item input,
+.filter-item select {
+    flex: 2; /* O input/select ocupa 2 partes do espaço disponível */
+    padding: 0.5rem; /* Espaçamento interno */
+    border: 1px solid #ced4da; /* Borda leve */
+    border-radius: 0.25rem; /* Bordas arredondadas */
+    width: 100%; /* Garante que o input ou select ocupe toda a largura disponível */
+}

@@ -1,9 +1,9 @@
 <div>
 
   <div class="search-box-container">
-    <div class="search-controls">
+    <app-search-box></app-search-box>
+    <div class="filter-sort-container">
       <app-filter></app-filter>
-      <app-search-box></app-search-box>
       <app-sort></app-sort>
     </div>
   </div>
@@ -14,12 +14,14 @@
      [country]="country" (click)="goToCountriesDetails(country)">
     </app-countries-card>
   </div>
-  
-  <app-pagination 
-  [totalItems]="(totalCountries$ | async) || 0" 
-  [itemsPerPage]="(pageSize$ | async) || 12" 
-  [currentPage]="(currentPage$ | async) || 1" 
-  (pageChange)="onPageChange($event)">
-  </app-pagination>
+
+  <div>
+    <app-pagination 
+    [totalItems]="(totalCountries$ | async) || 0" 
+    [itemsPerPage]="(pageSize$ | async) || 12" 
+    [currentPage]="(currentPage$ | async) || 1" 
+    (pageChange)="onPageChange($event)">
+    </app-pagination>
+  </div>
 
 </div>

@@ -1,16 +1,26 @@
-<div>
-  <label for="regionSelect">Region:</label>
-  <select id="regionSelect" (change)="onRegionChange($event)">
-  <option *ngFor="let region of regions" [value]="region">{{ region }}</option>
-  </select>
-
-  <label for="subRegionSelect">Sub-region:</label>
-  <select id="subRegionSelect" (change)="onSubRegionChange($event)">
-  <option *ngFor="let subRegion of subRegions" [value]="subRegion">{{ subRegion }}</option>
-  </select>
-
-  <label for="populationSelect">Population:</label>
-  <select id="populationSelect" (change)="onPopulationRangeChange($event)">
-  <option *ngFor="let range of populationRanges" [value]="range">{{ range }}</option>
-  </select>
+<div class="filter-dropdown">
+  <button class="filter-toggle" (click)="toogleFilters()">Filtrar</button>
+  
+  <div *ngIf="showFilters" class="filter-container">
+    <div class="filter-options">
+      <div class="filter-item">
+        <label for="regionSelect">Region:</label>
+        <select id="regionSelect" (change)="onRegionChange($event)">
+          <option *ngFor="let region of regions" [value]="region">{{ region }}</option>
+        </select>
+      </div>
+      <div class="filter-item">
+        <label for="subRegionSelect">Sub-region:</label>
+        <select id="subRegionSelect" (change)="onSubRegionChange($event)">
+          <option *ngFor="let subRegion of subRegions" [value]="subRegion">{{ subRegion }}</option>
+        </select>
+      </div>
+      <div class="filter-item">
+        <label for="populationSelect">Population:</label>
+        <select id="populationSelect" (change)="onPopulationRangeChange($event)">
+          <option *ngFor="let range of populationRanges" [value]="range">{{ range }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
 </div>

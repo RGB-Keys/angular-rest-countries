@@ -1,0 +1,76 @@
+.sort-dropdown {
+    position: relative;
+}
+
+.sort-toggle {
+    background-color: #007bff; /* Cor do botão */
+    color: white; /* Cor do texto */
+    padding: 10px 20px; /* Espaçamento interno */
+    border: none; /* Remove a borda padrão */
+    border-radius: 4px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor em forma de mão */
+    transition: background-color 0.3s ease;
+}
+
+.sort-toggle:hover {
+    background-color: #0056b3; /* Cor mais escura no hover */
+}
+
+.sort-container {
+    position: absolute; /* Para que o dropdown apareça sobre os outros elementos */
+    top: 0%; /* Abaixo do botão */
+    left: 100%;
+    background-color: #f8f9fa; /* Fundo leve */
+    padding: 15px; /* Espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    width: 100%; /* Tornando o dropdown responsivo */
+    max-width: 300px; /* Largura máxima */
+}
+
+@media (max-width: 768px) {
+    .sort-container {
+        top: 100%;
+        left: 0; 
+        width: 100%;
+        max-width: none;
+    }
+    
+    .sort-toggle {
+        width: 100%; /* O botão também ocupará toda a largura da tela */
+    }
+}
+
+.sort-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaçamento entre os itens */
+}
+
+.sort-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.sort-item label {
+    font-weight: bold;
+    margin-bottom: 5px; /* Espaçamento entre o label e o select */
+}
+
+.sort-item select {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #ffffff;
+    font-size: 1em;
+    width: 100%; /* Ocupa todo o espaço disponível */
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.sort-item select:focus {
+    border-color: #80bdff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25); /* Sombra no foco */
+}

@@ -1,4 +1,9 @@
- .search-box input {
+.search-box {
+    display: flex; /* Use flexbox para alinhar o input e o botão se houver */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+}
+
+.search-box input {
     padding: 10px;
     font-size: 1em;
     border: 1px solid #ced4da;
@@ -6,8 +11,10 @@
     width: 100%;
     max-width: 600px; /* Ajuste conforme necessário */
     box-sizing: border-box;
+    background-color: #ffffff; /* Fundo branco para o campo de entrada */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Transição suave */
 }
-  
+
 .search-box input:focus {
     border-color: #80bdff;
     outline: none;
