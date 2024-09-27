@@ -1,0 +1,18 @@
+version: '3'
+services:
+  angular-dev:
+    build:
+      context: .
+      target: development 
+    ports:
+      - "4200:4200"
+    volumes:
+      - .:/app
+    command: ng serve --host 0.0.0.0
+
+  angular-prod:
+    build:
+      context: .
+      target: build  
+    ports:
+      - "8080:80"

@@ -1,0 +1,66 @@
+.country-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+  
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+  
+.header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+  
+.country-flag {
+  width: 100px;
+  height: 60px;
+  object-fit: cover;
+  border: 0.1px solid black;
+  border-radius: 5px;
+}
+  
+.info-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+  
+.info-group p {
+  flex-basis: 45%;
+  margin: 0;
+}
+  
+.label {
+  font-weight: bold;
+  color: #333;
+}
+  
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+  
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: #0056b3;
+  color: #ffffff;
+  cursor: pointer;
+  margin: 0 5px; 
+}

@@ -1,0 +1,39 @@
+<div class="country-details" *ngIf="country$ | async as country; else loading">
+  <div class="header">
+    <h1>{{ country.name.official }}</h1>
+    <img [src]="country.flags.png" alt="Flag of {{ country.name.common }}" class="country-flag">
+  </div>
+
+  <div class="info-group">
+    <p><span class="label">Nome Comum:</span> {{ country.name.common }}</p>
+    <p><span class="label">Nome Oficial:</span> {{ country.name.official }}</p>
+    <p><span class="label">Capital:</span> {{ country.capital[0] }}</p>
+    <p><span class="label">Região:</span> {{ country.region }}</p>
+    <p><span class="label">Sub-região:</span> {{ country.subregion }}</p>
+    <p><span class="label">População:</span> {{ country.population | number }}</p>
+    <p><span class="label">Área:</span> {{ country.area | number }} km²</p>
+  </div>
+
+  <div class="info-group">
+    <p><span class="label">Idiomas:</span> 
+      <span *ngFor="let language of (country.languages | keyvalue); let isLast = last">
+        {{ language.value }}<span *ngIf="!isLast">, </span>
+      </span>
+    </p>
+    <p><span class="label">Moedas:</span> 
+      <span *ngFor="let currency of (country.currencies | keyvalue)">
+        {{ currency.value.name }} ({{ currency.value.symbol }})
+      </span>
+    </p>
+    <p><span class="label">Fuso horário:</span> {{ country.timezones.join(', ') }}</p>
+    <p><span class="label">Domínio de internet (TLD):</span> {{ country.tld.join(', ') }}</p>
+    <p><span class="label">Código de discagem internacional:</span> +{{ country.idd.root }}{{ country.idd.suffixes.join(', ') }}</p>
+    <p><span class="label">Mapa (Google Maps):</span> <a [href]="country.maps.googleMaps" target="_blank">Ver no Google Maps</a></p>
+  </div>
+
+  <button (click)="goBack()">Voltar</button>
+</div>
+
+<ng-template #loading>
+  <p>Carregando...</p>
+</ng-template>

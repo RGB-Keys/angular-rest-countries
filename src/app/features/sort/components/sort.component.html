@@ -1,0 +1,13 @@
+<div class="sort-dropdown">
+  <button class="sort-toggle" (click)="toggleSortOption()">Ordenar</button>
+  <div class="sort-container" *ngIf="showSortOption">
+    <div class="sort-options">
+      <div class="sort-item">
+        <label>Sort by:</label>
+        <select (change)="onSortChange($event)">
+          <option *ngFor="let option of sortOptions" [value]="option.value">{{ option.label }}</option>
+        </select>
+      </div>
+    </div> 
+  </div>  
+</div>
