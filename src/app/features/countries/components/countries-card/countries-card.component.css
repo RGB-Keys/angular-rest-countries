@@ -30,10 +30,10 @@
 }
   
 .country-name {
-  font-size: 1.5em; /* Aumentar o tamanho da fonte */
+  font-size: 1.5em;
   font-weight: bold;
-  color: #333; /* Cor escura para melhor contraste */
-  margin-bottom: 5px; /* Espaçamento abaixo do nome */
+  color: #333;
+  margin-bottom: 5px;
 }
   
 .country-details {

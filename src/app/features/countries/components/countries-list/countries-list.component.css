@@ -1,8 +1,9 @@
 .search-box-container {
-  padding: 15px;
+  padding: 10px 10px;
   border-radius: 8px;
   background-color: #053364;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
   margin-bottom: 10px;
 }
 
@@ -11,22 +12,6 @@
   display: flex;
   justify-content: center;
   gap: 15px;
-}
-
-@media (max-width: 768px) {
-  .search-box-container {
-    padding: 10px 10px;
-  }
-
-  .search-controls {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .search-controls > * {
-    margin-bottom: 10px;
-    min-width: auto;
-  }
 }
 
 .country-container {
@@ -51,6 +36,12 @@
 }
 
 @media (max-width: 500px) {
+
+  .filter-sort-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .country-container {
     grid-template-columns: 1fr;
   }

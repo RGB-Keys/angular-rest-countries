@@ -1,6 +1,6 @@
 .search-box {
-    display: flex; /* Use flexbox para alinhar o input e o botão se houver */
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    display: flex;
+    justify-content: center;
 }
 
 .search-box input {
@@ -9,10 +9,10 @@
     border: 1px solid #ced4da;
     border-radius: 4px;
     width: 100%;
-    max-width: 600px; /* Ajuste conforme necessário */
+    max-width: 600px;
     box-sizing: border-box;
-    background-color: #ffffff; /* Fundo branco para o campo de entrada */
-    transition: border-color 0.3s, box-shadow 0.3s; /* Transição suave */
+    background-color: #ffffff; 
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .search-box input:focus {

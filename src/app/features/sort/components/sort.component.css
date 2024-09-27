@@ -3,30 +3,31 @@
 }
 
 .sort-toggle {
-    background-color: #007bff; /* Cor do botão */
-    color: white; /* Cor do texto */
-    padding: 10px 20px; /* Espaçamento interno */
-    border: none; /* Remove a borda padrão */
-    border-radius: 4px; /* Bordas arredondadas */
-    cursor: pointer; /* Cursor em forma de mão */
+    background-color: #007bff;
+    color: #ffffff;
+    width: 90px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .sort-toggle:hover {
-    background-color: #0056b3; /* Cor mais escura no hover */
+    background-color: #0056b3;
 }
 
 .sort-container {
-    position: absolute; /* Para que o dropdown apareça sobre os outros elementos */
-    top: 0%; /* Abaixo do botão */
+    position: absolute;
+    top: 0%;
     left: 100%;
-    background-color: #f8f9fa; /* Fundo leve */
-    padding: 15px; /* Espaçamento interno */
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    z-index: 1000; /* Garante que fique acima de outros elementos */
-    width: 100%; /* Tornando o dropdown responsivo */
-    max-width: 300px; /* Largura máxima */
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 100%;
+    max-width: 300px;
 }
 
 @media (max-width: 768px) {
@@ -38,14 +39,14 @@
     }
     
     .sort-toggle {
-        width: 100%; /* O botão também ocupará toda a largura da tela */
+        width: 100%;
     }
 }
 
 .sort-options {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Espaçamento entre os itens */
+    gap: 10px;
 }
 
 .sort-item {
@@ -55,16 +56,15 @@
 
 .sort-item label {
     font-weight: bold;
-    margin-bottom: 5px; /* Espaçamento entre o label e o select */
+    margin-bottom: 5px; 
 }
 
 .sort-item select {
-    padding: 10px;
+    flex: 2; 
+    padding: 0.5rem;
     border: 1px solid #ced4da;
-    border-radius: 4px;
-    background-color: #ffffff;
-    font-size: 1em;
-    width: 100%; /* Ocupa todo o espaço disponível */
+    border-radius: 0.25rem;
+    width: 100%; 
     box-sizing: border-box;
     transition: border-color 0.3s ease;
 }
@@ -72,5 +72,5 @@
 .sort-item select:focus {
     border-color: #80bdff;
     outline: none;
-    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25); /* Sombra no foco */
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
 }
