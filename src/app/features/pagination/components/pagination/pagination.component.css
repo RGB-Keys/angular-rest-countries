@@ -4,7 +4,24 @@
     align-items: center;
     margin-top: 20px;
 }
-  
-button {
+
+.pagination button {
+    padding: 5px 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    background-color: #ffffff;;
+    color: #007bff;
+    cursor: pointer;
     margin: 0 5px;
-}  
+    transition: background-color 0.3s, transform 0.2s; 
+}
+
+.pagination button:hover {
+    background-color: #e2e6ea;
+    transform: translateY(-2px);
+} 
+
+.pagination button:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25); 
+}

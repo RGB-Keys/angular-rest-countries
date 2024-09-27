@@ -11,7 +11,9 @@ export class CountryDataService {
   private apiUrl = "https://restcountries.com/v3.1/all";
   private apiUrlByName = "https://restcountries.com/v3.1/name/";
 
-  constructor(private httpClient: HttpClient) { }
+  constructor
+  (
+    private httpClient: HttpClient  ) { }
 
   getCountries(): Observable<Country[]> {
     return this.httpClient.get<Country[]>(this.apiUrl).pipe(

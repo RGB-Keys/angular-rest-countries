@@ -1,6 +1,6 @@
 .country-card {
-  background-color: rgb(253, 244, 231);
-  border: 1px solid blanchedalmond;
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
   border-radius: 8px;
   padding: 16px;
   text-align: center;
@@ -16,6 +16,7 @@
 
 .country-card:hover {
   transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
   
 .country-flag {
@@ -29,8 +30,10 @@
 }
   
 .country-name {
-    font-size: 1.3em;
-    font-weight: bold;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
 }
   
 .country-details {
