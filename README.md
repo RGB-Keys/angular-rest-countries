@@ -2,8 +2,8 @@
 
 ## Pré-Requisitos
 
-  - Angular - version 16.2.15 
-  - Node - version 18.20.4
+  - **Angular** - version 16.2.15 
+  - **Node** - version 18.20.4
   - Docker (Opcional)
   - Docker-Compose (Opcional)
 
@@ -59,6 +59,8 @@ Caso você não queira instalar o Node e Angular no seu PC, você pode utilizar 
      ```bash
      ng version
      ```
+
+---
 
 ## Instalação no Linux
 
