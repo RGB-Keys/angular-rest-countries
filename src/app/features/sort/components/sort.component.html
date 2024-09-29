@@ -3,7 +3,7 @@
   <div class="sort-container" *ngIf="showSortOption">
     <div class="sort-options">
       <div class="sort-item">
-        <label>Sort by:</label>
+        <label>Ordenar:</label>
         <select (change)="onSortChange($event)">
           <option *ngFor="let option of sortOptions" [value]="option.value">{{ option.label }}</option>
         </select>

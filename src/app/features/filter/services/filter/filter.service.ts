@@ -1,36 +1,65 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-
+import { Country } from 'src/app/features/countries/models/country.model';
+import { CountryFilters } from '../../model/country-filters.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilterService {
-  private region$ = new BehaviorSubject<string>('');
-  private subRegion$ = new BehaviorSubject<string>('');
-  private populationRange$ = new BehaviorSubject<string>('');
+  private filters$ = new BehaviorSubject<CountryFilters>({
+    region: '',
+    subRegion: '',
+    populationRange: ''
+  });
 
   setRegion(region: string) {
-    this.region$.next(region);
-  }
-
-  getRegion(): Observable<string> {
-    return this.region$.asObservable();
+    this.updateFilters({ region });
   }
 
   setSubRegion(subRegion: string) {
-    this.subRegion$.next(subRegion);
+    this.updateFilters({ subRegion });
   }
 
-  getSubRegion(): Observable<string> {
-    return this.subRegion$.asObservable();
+  setPopulationRange(populationRange: string) {
+    this.updateFilters({ populationRange });
   }
 
-  setPopulationRange(range: string) {
-    this.populationRange$.next(range);
+  getFilters(): Observable<CountryFilters> {
+    return this.filters$.asObservable();
   }
 
-  getPopulationRange(): Observable<string> {
-    return this.populationRange$.asObservable();
+  getFilteredCountries(countries: Country[], filters: CountryFilters, searchTerm: string): Country[] {
+    return countries.filter(country => {
+      return this.matchesFilters(country, filters, searchTerm);
+    });
+  }
+
+  private updateFilters(partialFilters: Partial<CountryFilters>) {
+    const currentFilters = this.filters$.getValue();
+    this.filters$.next({ ...currentFilters, ...partialFilters });
+  }
+
+  private matchesFilters(country: Country, filters: CountryFilters, searchTerm: string): boolean {
+    const matchesRegion = !filters.region || country.region === filters.region;
+    const matchesSubRegion = !filters.subRegion || country.subregion === filters.subRegion;
+    const matchesPopulation = this.matchPopulationRange(country.population, filters.populationRange);
+    const matchesSearchTerm = country.name.common.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesRegion && matchesSubRegion && matchesPopulation && matchesSearchTerm;
+  }
+
+  private matchPopulationRange(population: number, range: string): boolean {
+    switch (range) {
+      case '<1M':
+        return population < 1_000_000;
+      case '1M-10M':
+        return population >= 1_000_000 && population <= 10_000_000;
+      case '10M-100M':
+        return population > 10_000_000 && population <= 100_000_000;
+      case '>100M':
+        return population > 100_000_000;
+      default:
+        return true;
+    }
   }
 }
