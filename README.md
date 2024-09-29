@@ -7,6 +7,35 @@
   - Docker (Opcional)
   - Docker-Compose (Opcional)
 
+---
+
+## Uso do Docker-Compose (Opcional):
+
+Caso você não queira instalar o Node e Angular no seu PC, você pode utilizar o Docker-Compose para criar um container contendo o Node e Angular nas versões necessárias para o funcionamento do projeto.
+
+### Instalar o Docker e Docker-Compose
+
+  Siga as instruções da documentação do Docker:
+
+ - https://docs.docker.com/compose/install/
+
+### Usando o Docker-Compose
+
+  O Docker-Compose já está configurado, para utilizado basta utilizar o comando:
+
+  ```bash
+  docker-compose up angular-dev
+  ```
+  Ou pode utilizar o Make (Caso você use Linux ou Mac...)
+  
+ ```bash
+ make start
+ ```
+
+  Se caso opte por esta opção, não será necessário passar para as próximas etapas. Isto porque o Docker-Compose foi     configurado para executar o projeto.
+
+----
+
 ## Instalação no Windows
 
 ### Instalar Node.js 18 no Windows
@@ -63,32 +92,7 @@
   ng version
   ```
 
-## Uso do Docker-Compose (Opcional):
-
-Caso você não queira instalar o Node e Angular no seu PC, você pode utilizar o Docker-Compose para criar um container contendo o Node e Angular nas versões necessárias para o funcionamento do projeto.
-
-### Instalar o Docker e Docker-Compose
-
-  Siga as instruções da documentação do Docker:
-
- - https://docs.docker.com/compose/install/
-
-### Usando o Docker-Compose
-
-  O Docker-Compose já está configurado, para utilizado basta utilizar o comando:
-
-  ```bash
-  docker-compose up angular-dev
-  ```
-  Ou pode utilizar o Make (Caso você use Linux ou Mac...)
-  
- ```bash
- make start
- ```
-
-  Se caso opte por esta opção, não será necessário passar para próxima etapa. Isto porque o Docker-Compose foi configurado    para executar o projeto.
-
-----
+---
 
 ## Executando o projeto:
 
