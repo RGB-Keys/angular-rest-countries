@@ -54,13 +54,13 @@
 1. **Instalar o Node**
 
   ```bash
-      npm install -g @angular/cli@16
+  npm install -g @angular/cli@16
   ```
 
 2. **Verificar a instalação**
 
   ```bash
-      ng version
+  ng version
   ```
 
 ## Uso do Docker-Compose (Opcional):
@@ -78,12 +78,12 @@ Caso você não queira instalar o Node e Angular no seu PC, você pode utilizar 
   O Docker-Compose já está configurado, para utilizado basta utilizar o comando:
 
   ```bash
-      docker-compose up angular-dev
+  docker-compose up angular-dev
   ```
   Ou pode utilizar o Make (Caso você use Linux ou Mac...)
   
  ```bash
-      make start
+ make start
  ```
 
   Se caso opte por esta opção, não será necessário passar para próxima etapa. Isto porque o Docker-Compose foi configurado    para executar o projeto.
@@ -95,6 +95,6 @@ Caso você não queira instalar o Node e Angular no seu PC, você pode utilizar 
   Basta utilizar o comando no terminal:
 
 ```bash
-    ng serve
+ng serve
 ```
 
