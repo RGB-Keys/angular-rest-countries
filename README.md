@@ -38,15 +38,15 @@
 1. **Instalar o Node**
 
   ```bash
-      curl -fsSl https://deb.nodesource.com/setup_18.x | sudo -E bash -
-      sudo apt-get install -y nodejs
+  curl -fsSl https://deb.nodesource.com/setup_18.x | sudo -E bash -
+  sudo apt-get install -y nodejs
   ```
 
 2. **Verificar a instalação**
 
   ```bash
-      node -v
-      npm -v
+  node -v
+  npm -v
   ```
 
 ### Instalar Angular CLI 16 no Linux
