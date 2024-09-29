@@ -67,13 +67,13 @@
 
 Caso você não queira instalar o Node e Angular no seu PC, você pode utilizar o Docker-Compose para criar um container contendo o Node e Angular nas versões necessárias para o funcionamento do projeto.
 
-1. **Instalar o Docker e Docker-Compose**
+### Instalar o Docker e Docker-Compose
 
   Siga as instruções da documentação do Docker:
 
  - https://docs.docker.com/compose/install/
 
-2. **Usando o Docker-Compose**
+### Usando o Docker-Compose
 
   O Docker-Compose já está configurado, para utilizado basta utilizar o comando:
 
