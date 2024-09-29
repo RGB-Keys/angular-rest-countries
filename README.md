@@ -1,27 +1,100 @@
 # RestCountries
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.15.
+## Pré-Requisitos
 
-## Development server
+  - Angular - version 16.2.15 
+  - Node - version 18.20.4
+  - Docker (Opcional)
+  - Docker-Compose (Opcional)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Instalação no Windows
 
-## Code scaffolding
+### Instalar Node.js 18 no Windows
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. **Baixar o Node.js 18**
+   - Acesse o site oficial do Node.js: [Node.js Downloads](https://nodejs.org/en/download/)
+   - Escolha a versão 18.20.4 LTS e siga as intruções de instalação via PowerShell
+  
+### Instalar Angular 16 no Windows
 
-## Build
+1. **Instalar o Angular CLI**
+   - Execute o seguinte comando para instalar o Angular CLI globalmente:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+     ```bash
+     npm install -g @angular/cli@16
+     ```
 
-## Running unit tests
+2. **Verificar a Instalação do Angular CLI**
+   - Verifique se o Angular CLI foi instalado corretamente:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+     ```bash
+     ng version
+     ```
 
-## Running end-to-end tests
+## Instalação no Linux
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Instalar Node.js 18 no Linux
 
-## Further help
+1. **Instalar o Node**
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  ```bash
+      curl -fsSl https://deb.nodesource.com/setup_18.x | sudo -E bash -
+      sudo apt-get install -y nodejs
+  ```
+
+2. **Verificar a instalação**
+
+  ```bash
+      node -v
+      npm -v
+  ```
+
+### Instalar Angular CLI 16 no Linux
+
+1. **Instalar o Node**
+
+  ```bash
+      npm install -g @angular/cli@16
+  ```
+
+2. **Verificar a instalação**
+
+  ```bash
+      ng version
+  ```
+
+## Uso do Docker-Compose (Opcional):
+
+Caso você não queira instalar o Node e Angular no seu PC, você pode utilizar o Docker-Compose para criar um container contendo o Node e Angular nas versões necessárias para o funcionamento do projeto.
+
+1. **Instalar o Docker e Docker-Compose**
+
+  Siga as instruções da documentação do Docker:
+
+ - https://docs.docker.com/compose/install/
+
+2. **Usando o Docker-Compose**
+
+  O Docker-Compose já está configurado, para utilizado basta utilizar o comando:
+
+  ```bash
+      docker-compose up angular-dev
+  ```
+  Ou pode utilizar o Make (Caso você use Linux ou Mac...)
+  
+ ```bash
+      make start
+ ```
+
+  Se caso opte por esta opção, não será necessário passar para próxima etapa. Isto porque o Docker-Compose foi configurado    para executar o projeto.
+
+----
+
+## Executando o projeto:
+
+  Basta utilizar o comando no terminal:
+
+```bash
+    ng serve
+```
+
