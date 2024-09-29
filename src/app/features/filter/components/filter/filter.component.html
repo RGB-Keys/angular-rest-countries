@@ -1,24 +1,16 @@
 <div class="filter-dropdown">
-  <button class="filter-toggle" (click)="toogleFilters()">Filtrar</button>
+  <button class="filter-toggle" (click)="toggleFilters()">Filtrar</button>
   
   <div *ngIf="showFilters" class="filter-container">
     <div class="filter-options">
-      <div class="filter-item">
-        <label for="regionSelect">Region:</label>
-        <select id="regionSelect" (change)="onRegionChange($event)">
-          <option *ngFor="let region of regions" [value]="region">{{ region }}</option>
-        </select>
-      </div>
-      <div class="filter-item">
-        <label for="subRegionSelect">Sub-region:</label>
-        <select id="subRegionSelect" (change)="onSubRegionChange($event)">
-          <option *ngFor="let subRegion of subRegions" [value]="subRegion">{{ subRegion }}</option>
-        </select>
-      </div>
-      <div class="filter-item">
-        <label for="populationSelect">Population:</label>
-        <select id="populationSelect" (change)="onPopulationRangeChange($event)">
-          <option *ngFor="let range of populationRanges" [value]="range">{{ range }}</option>
+      <div class="filter-item" *ngFor="let filter of filterOptions">
+        <label [for]="filter.id">{{ filter.label }}:</label>
+        <select 
+          [id]="filter.id" 
+          [disabled]="filter.disabled || (filter.id === 'subRegionSelect' && !filters.region)" 
+          (change)="filter.onChange($event)">
+          <option value="" selected>Selecione</option>
+          <option *ngFor="let option of filter.options" [value]="option">{{ option }}</option>
         </select>
       </div>
     </div>
