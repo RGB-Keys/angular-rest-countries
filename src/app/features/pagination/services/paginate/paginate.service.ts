@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Country } from 'src/app/features/countries/models/country.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +27,10 @@ export class PaginateService {
 
   resetPage(): void {
     this.setCurrentPage(1);
+  }
+
+  getPaginateCountries(countries: Country[], page: number, pageSize: number): Country[] {
+    const startIndex = (page - 1) * pageSize;
+    return countries.slice(startIndex, startIndex + pageSize);
   }
 }

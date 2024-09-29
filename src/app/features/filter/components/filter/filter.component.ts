@@ -1,38 +1,100 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FilterService } from '../../services/filter/filter.service';
 import { getSelectValue, showOptionsVisibility } from 'src/app/shared/utils/event-utils';
+import { CountryFilters } from '../../model/country-filters.model';
+import { FilterOptions } from '../../model/filter-options.model';
+import { FilterDataService } from '../../services/filter-data/filter-data.service';
 
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.css']
 })
-export class FilterComponent {
+export class FilterComponent implements OnInit {
   showFilters = false;
 
-  regions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
-  subRegions = ['Northern Africa', 'Western Asia', 'Southern Europe'];
-  populationRanges = ['<1M', '1M-10M', '10M-100M', '>100M'];
+  filters: CountryFilters = {
+    region: '',
+    subRegion: '',
+    populationRange: ''
+  };
 
-  constructor(private filterService: FilterService) {}
+  filterOptions: FilterOptions[] = [
+    {
+      id: 'regionSelect',
+      label: 'Região',
+      options: [],
+      onChange: (event: Event) => this.onFilterChange(event, 'region')
+    },
+    {
+      id: 'subRegionSelect',
+      label: 'Sub-região',
+      options: [],
+      onChange: (event: Event) => this.onFilterChange(event, 'subRegion'),
+      disabled: true
+    },
+    {
+      id: 'populationSelect',
+      label: 'População',
+      options: [],
+      onChange: (event: Event) => this.onFilterChange(event, 'populationRange')
+    }
+  ];
 
-  onRegionChange(event: Event) {
-    const selectedRegion = getSelectValue(event);
-    this.filterService.setRegion(selectedRegion);
+  constructor
+  (
+  private filterService: FilterService,
+  private filterDataService: FilterDataService
+  )
+   {}
+
+  ngOnInit(): void {
+    this.loadFilters();
   }
 
-  onSubRegionChange(event: Event) {
-    const selectedSubRegion = getSelectValue(event);
-    this.filterService.setSubRegion(selectedSubRegion);
+  loadFilters() {
+    this.filterDataService.getRegionsAndSubregions().subscribe(data => {
+      this.filterOptions[0].options = data.regions;
+    });
+    
+    this.filterDataService.getPopulationRanges().subscribe(ranges => {
+        this.filterOptions[2].options = ranges;
+    });
+
   }
 
-  onPopulationRangeChange(event: Event) {
-    const selectedRange = getSelectValue(event);
-    this.filterService.setPopulationRange(selectedRange);
+  onFilterChange(event: Event, filterType: 'region' | 'subRegion' | 'populationRange') {
+    const selectedValue = getSelectValue(event);
+    this.filterActions[filterType](selectedValue);
+    if (filterType === 'region') {
+      this.filters.region = selectedValue;
+      this.filters.subRegion = '';
+      this.updateSubRegions();
+    }
   }
 
-  toogleFilters() {
+  updateSubRegions() {
+    const selectedRegion = this.filters.region;
+
+    if (selectedRegion) {
+      this.filterDataService.getRegionsAndSubregions(selectedRegion).subscribe(data => {
+        this.filterOptions[1].options = data.subregions;
+        this.filterOptions[1].disabled = data.subregions.length === 0;
+      });
+    } else {
+      this.filterOptions[1].options = [];
+      this.filterOptions[1].disabled = true;  
+    }
+  }
+
+  toggleFilters() {
     this.showFilters = showOptionsVisibility(this.showFilters);
   }
+
+  private filterActions: { [key: string]: (value: string) => void } = {
+    region: (value) => this.filterService.setRegion(value),
+    subRegion: (value) => this.filterService.setSubRegion(value),
+    populationRange: (value) => this.filterService.setPopulationRange(value)
+  };
 
 }
