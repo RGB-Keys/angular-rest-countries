@@ -11,7 +11,7 @@
 
 ## Uso do Docker-Compose (Opcional):
 
-Caso você não queira instalar o Node e Angular no seu PC, você pode utilizar o Docker-Compose para criar um container contendo o Node e Angular nas versões necessárias para o funcionamento do projeto.
+Se preferir não instalar o Node e Angular no seu PC, você pode utilizar o Docker-Compose para criar um container contendo o Node e Angular nas versões necessárias para o funcionamento do projeto.
 
 ### Instalar o Docker e Docker-Compose
 
@@ -32,7 +32,7 @@ Caso você não queira instalar o Node e Angular no seu PC, você pode utilizar 
  make start
  ```
 
-  Se caso opte por esta opção, não será necessário passar para as próximas etapas. Isto porque o Docker-Compose foi     configurado para executar o projeto.
+  Escolhendo esta opção, não será necessário passar para as próximas etapas. Isto porque o Docker-Compose foi     configurado para executar o projeto.
 
 ----
 
