@@ -104,3 +104,8 @@ Se preferir não instalar o Node e Angular no seu PC, você pode utilizar o Dock
 ng serve
 ```
 
+Se necessário, caso a pasta node_modules não tenha sido instalada:
+
+```bash
+npm install
+```
